@@ -1,0 +1,5 @@
+SELECT EXTRACT(YEAR FROM update_date) AS update_year, COUNT(*) AS paper_count
+FROM arxiv_papers 
+GROUP BY update_year
+ORDER BY paper_count DESC
+;
