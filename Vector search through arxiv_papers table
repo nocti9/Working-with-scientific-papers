@@ -1,0 +1,6 @@
+SELECT id, title, embedding
+FROM arxiv_papers
+ORDER BY embedding <-> (SELECT embedding 
+							FROM arxiv_papers
+							WHERE title = 'Continuity in Information Algebras') DESC
+LIMIT 3;
