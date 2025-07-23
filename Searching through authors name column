@@ -1,0 +1,9 @@
+SELECT
+	ap1.title AS paper_title,
+	ap2.title AS co_author_paper_title
+FROM arxiv_papers AS ap1
+INNER JOIN arxiv_papers AS ap2
+	ON ap1.authors = (SELECT ap2.authors WHERE ap2.authors LIKE CONCAT('%', ap2.authors, '%') AND ap1.id != ap2.id)
+ORDER BY paper_title,
+		co_author_paper_title
+;
