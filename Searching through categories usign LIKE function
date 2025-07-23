@@ -1,0 +1,4 @@
+SELECT id, title, categories
+FROM arxiv_papers
+WHERE categories LIKE '%cs.AI%'
+ORDER BY title;
